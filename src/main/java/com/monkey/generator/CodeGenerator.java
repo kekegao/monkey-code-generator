@@ -69,7 +69,7 @@ public class CodeGenerator {
 
                             // 指定表
                             .addInclude(
-                                    "tf_b_order"
+                                    "tf_b_user"
                             )
 
                             // 去掉表前缀
@@ -82,6 +82,7 @@ public class CodeGenerator {
                             .enableLombok()
                             .enableTableFieldAnnotation()
                             .enableChainModel()
+                            .fileOverride() // ✅ 启用文件覆盖（关键配置）
 
                             // =================
                             // Controller
@@ -95,13 +96,14 @@ public class CodeGenerator {
                             .serviceBuilder()
                             .formatServiceFileName("%sService")
                             .formatServiceImplFileName("%sServiceImpl")
-
+                            .fileOverride() // ✅ 启用文件覆盖（关键配置）
                             // =================
                             // Mapper
                             // =================
                             .mapperBuilder()
                             .enableMapperAnnotation()
                             .enableBaseResultMap()
+                            .fileOverride() // ✅ 启用文件覆盖（关键配置）
                             .enableBaseColumnList();
                 })
 
